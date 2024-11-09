@@ -12,19 +12,19 @@ from PIL import Image, UnidentifiedImageError
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--id', type=str, required=True, help='User id, or a link containing it')
-parser.add_argument('-o', '--offset', type=int, default=13,
+parser.add_argument('-o', '--offset', type=int, default=0,
                     help='In the first 4 rows, a larger image will occur once every {offset} cells.'
                     'The following rows repeat this pattern. Set to 0 to disable larger images.')
-parser.add_argument('-c', '--col', type=int, default=5, help='Number of columns in the matrix')
-parser.add_argument('-r', '--row', type=int, default=8, help='Number of rows in the matrix')
-parser.add_argument('-w', '--width', type=int, default=540, help='Width of one cell. A value less than 600 is recommended.')
-parser.add_argument('-ht', '--height', type=int, default=750, help='Height of one cell. A value less than 800 is recommended. Will be the same as cell width in music mode.')
+parser.add_argument('-c', '--col', type=int, default=10, help='Number of columns in the matrix')
+parser.add_argument('-r', '--row', type=int, default=4, help='Number of rows in the matrix')
+parser.add_argument('-w', '--width', type=int, default=270, help='Width of one cell. A value less than 600 is recommended.')
+parser.add_argument('-ht', '--height', type=int, default=375, help='Height of one cell. A value less than 800 is recommended. Will be the same as cell width in music mode.')
 parser.add_argument('-rd', '--random', type=bool, default=False, help='Whether to shuffle the images')
-parser.add_argument('-rt', '--rating', type=int, default=0, help='Rating filter. Only integers between 1 (one star) and 5 (five stars) are meaningful')
+parser.add_argument('-rt', '--rating', type=int, default=4, help='Rating filter. Only integers between 1 (one star) and 5 (five stars) are meaningful')
 parser.add_argument('-s', '--sort-by-time', type=bool, default=False,
                     help='Whether to sort chronologically (neareast first). Default is False, as default sort order is by rating.')
 parser.add_argument('-m', '--mode', type=str, default='movie', choices=['book', 'movie', 'music'], help='"movie", "music" or "book". In "music" mode, cell height will be the same as cell width.')
-parser.add_argument('-t', '--threshold', type=int, default=300,
+parser.add_argument('-t', '--threshold', type=int, default=0,
                     help='Number of cached images to pertain. Once the number goes beyond this threshold, '
                     'unused cache gets removed. Set to 0 to immediately remove unused cache after a run. Set to negative to disable cache.')
 parser.add_argument('-l', '--limit', type=int, default=200,

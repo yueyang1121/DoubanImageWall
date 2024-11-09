@@ -3,7 +3,7 @@ name: generate-image-wall-demo-for-anyone
 on:
   workflow_dispatch:
     inputs:
-      doubanId:164577448
+      doubanId:
         description: 'douban id:'
         required: true
 
